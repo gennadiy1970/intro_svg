@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SVG</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
+      integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>SVG – Scalable Vector Graphics</h2>
+    </div>
+    <div class="wrapper">
+      <section>
+        <h4>Проблемы растра</h4>
+        <div class="flex-row ">
+          <div class="img-wrp">
+            <h5>zoom +100%</h5>
+            <img src="./img//rastr0.png" alt="" />
+          </div>
+          <div class="img-wrp">
+            <h5>zoom +400%</h5>
+            <img src="./img/rastr1.png" alt="" />
+          </div>
+        </div>
+        <h4>Преимущество векторов</h4>
+        <div class="flex-row ">
+          <div class="img-wrp">
+            <h5>zoom +100%</h5>
+            <img src="./img//rastr0.png" alt="" />
+          </div>
+          <div class="img-wrp">
+            <h5>zoom +400%</h5>
+            <img src="./img/rastr0.png" alt="" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <h4>Преимущества SVG</h4>
+        <ol>
+          <li>
+            Возможность легко создавать графику (редакторы Inkscape, CorelDrow и
+            др.)
+          </li>
+          <li>Open source ( на основе стандарта XML)</li>
+          <li>Open standard - не зависит от вендоров</li>
+          <li>Accessibility - легкость использования, доступность</li>
+          <li>
+            Легкость изучения - технология схожа с html/css и управляется js
+          </li>
+          <li>Поддержка всеми основными браузерами</li>
+        </ol>
+        <h4>Недостатки</h4>
+        <ol>
+          <li>чем больше мелких деталей, тем больше размер файла</li>
+          <li>для правильного отображения нужна загрузка всего файла</li>
+          <li>плохая поддержка старыми браузерами (до 2010г)</li>
+        </ol>
+        <h4>Валидация</h4>
+        <p><a href="http://jiggles.w3.org/svgvalidator/">валидатор</a></p>
+      </section>
+
+      <section>
+        <h4>SVG и HTML, CSS, Jscript</h4>
+        <ol>
+          <li>
+            в одной ссылке можно размещать множество изображений svg, но только
+            одно растровое изображение
+          </li>
+          <li>
+            в HTML можно вставлять код SVG или подключать внешний файл
+          </li>
+          <li>
+            внутри SVG можно вставить HTML (внутри тегов foreignObject )
+          </li>
+          <li>
+            SVG подключает CSS, вставляет и вставляет как атрибуты свойства CSS
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h4>Анимация и интерактивность SVG</h4>
+        <ul>
+          <li>формат имеет встроенные средства для анимации ( JS)</li>
+          <li>
+            <h4>внешние библиотеки</h4>
+            <ul>
+              <li><a href="http://raphaeljs.com/">Raphael.js</a></li>
+              <li><a href="http://d3js.org">D3.js</a></li>
+              <li><a href="http://bonsaiJS.org">BonsaiJS </a></li>
+              <li><a href="http://svgjs.com">Svg.js</a></li>
+              <li><a href="http://snapsvg.io">Snapsvg.js</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- <h4>Анимация контуров</h4> -->
+        <p>
+          <a href="http://html5.by/blog/animate-svg-path/">Анимация контуров</a>
+        </p>
+      </section>
+      <section>
+        <h4>Методы встраивания SVG в HTML</h4>
+        <p>
+          Элементы embed и object относятся к той же самой категории, что и
+          изображения (img), и фреймы (Iframe), а именно — строчные элементы с
+          замещаемым контентом
+        </p>
+        <ol>
+          <li>
+            <h4>Использование &lt;object&gt;</h4>
+            <pre><code>
+&lt;object 
+  type="image/svg+xml" 
+  data="SvgImg.svg" 
+  width="200" 
+  height="200"
+&gt;
+&lt;/object&gt;
+</code></pre>
+            <ul>
+              <li>
+                + применение таблицы стилей CSS, но стили должны быть прописаны
+                или в самом SVG файле, или подключены внешним стилем в SVG в
+                начале файла
+              </li>
+              <li>+ скрипты</li>
+              <li>+ SVG анимации</li>
+              <li>+ интерактивные SVG анимации</li>
+              <li>+ кеширование</li>
+              <li>+ max поддержка браузерам</li>
+            </ul>
+          </li>
+          <li>
+            <h4>Использование &lt;iframe&gt;</h4>
+            <pre>
+                <code>
+&lt;iframe 
+  src="SvgImg.svg"
+&gt;
+&lt;/iframe&gt;
+                </code>
+            </pre>
+            <ul>
+              <li>+ полностью отделяеть SVG и скрипты</li>
+              <li>
+                -- доступ к другому окну имеет сложности из-за ограничений
+                безопасности в большинсте браузеров
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>Использование &lt;img&gt;</h4>
+            <pre><code>
+&lt;img 
+  src="image.svg" 
+  width="200" 
+  height="200" 
+  alt="image description"
+&gt;
+            </code></pre>
+            <ul>
+              <li>+ можно задать высоту и ширину</li>
+              <li>+ SVG анимации</li>
+              <li>из-за ограничений безопасности в большинсте браузеров:</li>
+              <li>-- нет JS</li>
+              <li>-- нет CSS</li>
+              <li>-- нет интерактивной SVG анимации</li>
+              <li>
+                -- IE9, Safari, Chrome могут требовать подключения внешнего CSS
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>inline</h4>
+            <pre><code>
+&lt;svg 
+  width="300px" 
+  height="300px" 
+  xmlns="http://www.w3.
+    org/2000/svg"
+&gt;
+    &lt;text 
+      x="10" 
+      y="50" 
+      font-size="30">
+        My SVG
+    &lt;/text&gt;
+&lt;/svg&gt;
+            </code></pre>
+            <ul>
+              <li>+ применение таблицы стилей CSS</li>
+              <li>+ скрипты</li>
+              <li>+ SVG анимации</li>
+              <li>+ интерактивные SVG анимации</li>
+              <li>-- кеширование //лучше подключать файлами</li>
+            </ul>
+          </li>
+          <li>
+            <h4>css background-image</h4>
+            <pre><code>
+.anyElement {
+  background-image:
+      url(image.svg);
+}
+            </code></pre>
+            <ul>
+              <li>+ можно задать высоту и ширину</li>
+              <li>+ SVG анимации</li>
+              <li>-- нет CSS</li>
+              <li>-- нет JS</li>
+              <li>-- нет интерактивной SVG анимации</li>
+            </ul>
+          </li>
+          <li>
+            <h4>ВНЕ СПЕЦИФИКАЦИИ - Использование &lt;embed&gt;</h4>
+            <p>
+              <b>embed</b> был разработан и использовался в браузере Netscape не
+              вошел в спецификацию Html 4.01 но тем не менее часто используется
+            </p>
+          </li>
+        </ol>
+      </section>
+      <section></section>
+    </div>
+  </body>
+</html>
